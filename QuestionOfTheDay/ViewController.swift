@@ -1,7 +1,7 @@
  import UIKit
 
 class ViewController: UIViewController {
-    
+    // Test connection on this view controller
     let APPLICATION_ID = "4D3FD244-8F00-858C-FF1B-B0DB5F95C000"
     let API_KEY = "44D4173F-E674-F658-FF51-5334102EB900"
     let SERVER_URL = "https://api.backendless.com"
