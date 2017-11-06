@@ -12,7 +12,8 @@ class Opinion: NSObject{
     //for future expansion
     var objectId:String?
     var question:QuestionOfTheDay?
-    init(answer:Int){
+    init(answer:Int, question:QuestionOfTheDay?){
         self.answer = answer
+        self.question = question
     }
 }
