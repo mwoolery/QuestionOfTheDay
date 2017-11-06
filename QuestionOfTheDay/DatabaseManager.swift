@@ -158,18 +158,18 @@ class DatabaseManager {
     // clears the database
     func clearDatabaseSynchronously(){
         // clear movies first
-        let allMovies = self.retrieveAllMovies()
-        for movie in allMovies {
-            print("Removing \(movie)")
-            let dateStampRemoved = self.dataStoreMovie?.remove(movie)
+        let allOpinion = self.retrieveAllOpinions()
+        for opinion in allOpinion {
+            print("Removing \(opinion)")
+            let dateStampRemoved = self.dataStoreOpinion?.remove(opinion)
             print("date stamped removed: \(String(describing: dateStampRemoved))")
         }
         
-        let allDirectors = self.retrieveAllDirectors()
-        print(allDirectors)
-        for director in allDirectors {
-            print("Removing director \(director)")
-            let dateStampRemoved = self.dataStoreDirector?.remove(director)
+        let allQuestionOfTheDay = self.retrieveAllQuestionOfTheDays()
+        print(allQuestionOfTheDay)
+        for question in allQuestionOfTheDay {
+            print("Removing question \(question)")
+            let dateStampRemoved = self.dataStoreQuestionOfTheDay?.remove(question)
             print("date stamped removed: \(String(describing: dateStampRemoved))")
         }
     }
@@ -190,26 +190,26 @@ class DatabaseManager {
     
     
     // populates the entire database
-    func populateDatabaseSynchronously(){
-        
-        // save all the directors (non-blocking)
-        for (director, movies) in DatabaseManager.portfolio {
-            let savedDirector = dataStoreDirector?.save(director) as! Director // save a Director
-            var savedMovies:[String] = []
-            
-            for movie in movies {
-                let savedMovie = dataStoreMovie?.save(movie) as! Movie // save each of their movies
-                
-                savedMovies.append(savedMovie.objectId!) // gather the array of objectIds
-                let _ = dataStoreMovie?.setRelation("director:Director:1", // each movie has 1 director
-                    parentObjectId:savedMovie.objectId,
-                    childObjects:[savedDirector.objectId ?? ""])
-            }
-            
-            let _ = dataStoreDirector?.addRelation("movies:Movie:n",
-                                                   parentObjectId: savedDirector.objectId,
-                                                   childObjects: savedMovies)
-        }
-    }
+//    func populateDatabaseSynchronously(){
+//
+//        // save all the directors (non-blocking)
+//        for (questionOfTheDay, Opinion) in DatabaseManager.portfolio {
+//            let savedDirector = dataStoreDirector?.save(director) as! Director // save a Director
+//            var savedMovies:[String] = []
+//
+//            for movie in movies {
+//                let savedMovie = dataStoreMovie?.save(movie) as! Movie // save each of their movies
+//
+//                savedMovies.append(savedMovie.objectId!) // gather the array of objectIds
+//                let _ = dataStoreMovie?.setRelation("director:Director:1", // each movie has 1 director
+//                    parentObjectId:savedMovie.objectId,
+//                    childObjects:[savedDirector.objectId ?? ""])
+//            }
+//
+//            let _ = dataStoreDirector?.addRelation("movies:Movie:n",
+//                                                   parentObjectId: savedDirector.objectId,
+//                                                   childObjects: savedMovies)
+//        }
+//    }
     
 }
