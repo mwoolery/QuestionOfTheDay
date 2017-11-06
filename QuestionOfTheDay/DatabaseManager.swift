@@ -144,71 +144,72 @@ class DatabaseManager {
             NotificationCenter.default.post(name: NSNotification.Name(rawValue:"All Directors Fetched"), object: allQuestionOfTheDay)
         }
     }
-    
-    // clears the entire database asynchronously
-    func clearDatabase(){
-        Types.tryblock(
-            { ()->Void in
-                let dispatchQueue = DispatchQueue(label: "clearer", qos:.utility)
-                dispatchQueue.async {  self.clearDatabaseSynchronously() }
-        },catchblock:{(fault)->Void in print("Problem clearing database: \(String(describing: fault))")}
-        )
-    }
-    
-    // clears the database
-    func clearDatabaseSynchronously(){
-        // clear movies first
-        let allOpinion = self.retrieveAllOpinions()
-        for opinion in allOpinion {
-            print("Removing \(opinion)")
-            let dateStampRemoved = self.dataStoreOpinion?.remove(opinion)
-            print("date stamped removed: \(String(describing: dateStampRemoved))")
-        }
-        
-        let allQuestionOfTheDay = self.retrieveAllQuestionOfTheDays()
-        print(allQuestionOfTheDay)
-        for question in allQuestionOfTheDay {
-            print("Removing question \(question)")
-            let dateStampRemoved = self.dataStoreQuestionOfTheDay?.remove(question)
-            print("date stamped removed: \(String(describing: dateStampRemoved))")
-        }
-    }
-    
-    // populates the entire database asynchronously
-    func populateDatabase(){
-        
-        let dispatchQueue = DispatchQueue(label: "clearer", qos:.utility)
-        dispatchQueue.async {
-            Types.tryblock(
-                { ()->Void in
-                    self.populateDatabaseSynchronously()
-            },
-                catchblock:{(fault)->Void in print("We had an owie: \(String(describing:fault))")}
-            )
-        }
-    }
-    
-    
-    // populates the entire database
+    //For future Expansion
+//
+//    // clears the entire database asynchronously
+//    func clearDatabase(){
+//        Types.tryblock(
+//            { ()->Void in
+//                let dispatchQueue = DispatchQueue(label: "clearer", qos:.utility)
+//                dispatchQueue.async {  self.clearDatabaseSynchronously() }
+//        },catchblock:{(fault)->Void in print("Problem clearing database: \(String(describing: fault))")}
+//        )
+//    }
+//
+//    // clears the database
+//    func clearDatabaseSynchronously(){
+//        // clear movies first
+//        let allOpinion = self.retrieveAllOpinions()
+//        for opinion in allOpinion {
+//            print("Removing \(opinion)")
+//            let dateStampRemoved = self.dataStoreOpinion?.remove(opinion)
+//            print("date stamped removed: \(String(describing: dateStampRemoved))")
+//        }
+//
+//        let allQuestionOfTheDay = self.retrieveAllQuestionOfTheDays()
+//        print(allQuestionOfTheDay)
+//        for question in allQuestionOfTheDay {
+//            print("Removing question \(question)")
+//            let dateStampRemoved = self.dataStoreQuestionOfTheDay?.remove(question)
+//            print("date stamped removed: \(String(describing: dateStampRemoved))")
+//        }
+//    }
+//
+//    // populates the entire database asynchronously
+//    func populateDatabase(){
+//
+//        let dispatchQueue = DispatchQueue(label: "clearer", qos:.utility)
+//        dispatchQueue.async {
+//            Types.tryblock(
+//                { ()->Void in
+//                    self.populateDatabaseSynchronously()
+//            },
+//                catchblock:{(fault)->Void in print("We had an owie: \(String(describing:fault))")}
+//            )
+//        }
+//    }
+//
+//
+//    // populates the entire database
 //    func populateDatabaseSynchronously(){
 //
 //        // save all the directors (non-blocking)
-//        for (questionOfTheDay, Opinion) in DatabaseManager.portfolio {
-//            let savedDirector = dataStoreDirector?.save(director) as! Director // save a Director
-//            var savedMovies:[String] = []
+//        for (questionOfTheDay, opinions) in DatabaseManager.portfolio {
+//            let savedQuestionOfTheDay = dataStoreQuestionOfTheDay?.save(questionOfTheDay) as! QuestionOfTheDay // save a Director
+//            var savedOpinion:[String] = []
 //
-//            for movie in movies {
-//                let savedMovie = dataStoreMovie?.save(movie) as! Movie // save each of their movies
+//            for opinion in opinions {
+//                let savedOpinion = dataStoreOpinion?.save(opinion) as! Opinion // save each of their movies
 //
-//                savedMovies.append(savedMovie.objectId!) // gather the array of objectIds
-//                let _ = dataStoreMovie?.setRelation("director:Director:1", // each movie has 1 director
-//                    parentObjectId:savedMovie.objectId,
-//                    childObjects:[savedDirector.objectId ?? ""])
+//                savedOpinion.append(savedOpinion.objectId!) // gather the array of objectIds
+//                let _ = dataStoreOpinion?.setRelation("questionOfTheDay:QuestionOfTheDay:1", // each movie has 1 director
+//                    parentObjectId:savedOpinion.objectId,
+//                    childObjects:[savedQuestionOfTheDay.objectId ?? ""])
 //            }
 //
-//            let _ = dataStoreDirector?.addRelation("movies:Movie:n",
-//                                                   parentObjectId: savedDirector.objectId,
-//                                                   childObjects: savedMovies)
+//            let _ = dataStoreDirector?.addRelation("opinions:Opinion:n",
+//                                                   parentObjectId: savedQuestionOfTheDay.objectId,
+//                                                   childObjects: savedOpinion)
 //        }
 //    }
     
