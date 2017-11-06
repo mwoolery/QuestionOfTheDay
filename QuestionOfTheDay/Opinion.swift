@@ -6,11 +6,12 @@
 //
 
 import Foundation
-
-class Opinion{
+@objcMembers
+class Opinion: NSObject{
     var answer: Int
     //for future expansion
-    //var objectId
+    var objectId:String?
+    var question:QuestionOfTheDay?
     init(answer:Int){
         self.answer = answer
     }
