@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0F22E1AF1E8407D1004B722A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F22E1AE1E8407D1004B722A /* AppDelegate.swift */; };
-		0F22E1B11E8407D1004B722A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F22E1B01E8407D1004B722A /* ViewController.swift */; };
 		0F22E1B41E8407D1004B722A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F22E1B21E8407D1004B722A /* Main.storyboard */; };
 		0F22E1B61E8407D1004B722A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F22E1B51E8407D1004B722A /* Assets.xcassets */; };
 		0F22E1B91E8407D1004B722A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F22E1B71E8407D1004B722A /* LaunchScreen.storyboard */; };
@@ -24,7 +23,6 @@
 /* Begin PBXFileReference section */
 		0F22E1AB1E8407D1004B722A /* QuestionOfTheDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuestionOfTheDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F22E1AE1E8407D1004B722A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0F22E1B01E8407D1004B722A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0F22E1B31E8407D1004B722A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0F22E1B51E8407D1004B722A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F22E1B81E8407D1004B722A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -75,13 +73,12 @@
 			children = (
 				0F22E1AE1E8407D1004B722A /* AppDelegate.swift */,
 				3FE77C5E1FB0EDE200241F81 /* DatabaseManager.swift */,
-				0F22E1B01E8407D1004B722A /* ViewController.swift */,
 				3FE77C541FAF9B0A00241F81 /* QuestionOfTheDay.swift */,
 				3FE77C561FAF9E3A00241F81 /* Opinion.swift */,
 				3FE77C581FAF9ED200241F81 /* Statistician.swift */,
 				0F22E1B21E8407D1004B722A /* Main.storyboard */,
-				3FE77C5A1FAF9FFD00241F81 /* VoteViewController.swift */,
 				3FE77C5C1FAFA00E00241F81 /* StatisticsViewController.swift */,
+				3FE77C5A1FAF9FFD00241F81 /* VoteViewController.swift */,
 				0F22E1B51E8407D1004B722A /* Assets.xcassets */,
 				0F22E1B71E8407D1004B722A /* LaunchScreen.storyboard */,
 				0F22E1BA1E8407D1004B722A /* Info.plist */,
@@ -235,7 +232,6 @@
 				3FE77C5F1FB0EDE200241F81 /* DatabaseManager.swift in Sources */,
 				3FE77C5B1FAF9FFD00241F81 /* VoteViewController.swift in Sources */,
 				3FE77C571FAF9E3A00241F81 /* Opinion.swift in Sources */,
-				0F22E1B11E8407D1004B722A /* ViewController.swift in Sources */,
 				3FE77C591FAF9ED200241F81 /* Statistician.swift in Sources */,
 				3FE77C551FAF9B0A00241F81 /* QuestionOfTheDay.swift in Sources */,
 				0F22E1AF1E8407D1004B722A /* AppDelegate.swift in Sources */,

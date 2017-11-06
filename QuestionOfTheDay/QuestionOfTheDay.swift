@@ -27,4 +27,5 @@ class QuestionOfTheDay: NSObject{
     convenience override init(){
         self.init(question: "What time is it", answer0: "Party Time",answer1: "Hammer Time", answer2: "Game Time")
     }
+
 }

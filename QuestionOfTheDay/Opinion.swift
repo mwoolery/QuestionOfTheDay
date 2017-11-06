@@ -16,4 +16,5 @@ class Opinion: NSObject{
         self.answer = answer
         self.question = question
     }
+
 }
