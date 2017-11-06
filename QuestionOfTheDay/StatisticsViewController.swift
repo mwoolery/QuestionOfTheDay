@@ -9,6 +9,7 @@ import UIKit
 
 class StatisticsViewController: UIViewController {
     let statistician:Statistician = Statistician()
+    @IBOutlet weak var questionLBL: UILabel!
     @IBOutlet weak var answer0LBL: UILabel!
     @IBOutlet weak var answer1LBL: UILabel!
     @IBOutlet weak var answer2LBL: UILabel!
@@ -21,7 +22,7 @@ class StatisticsViewController: UIViewController {
         stats0LBL.text = String(answer[0])
         stats1LBL.text = String(answer[1])
         stats2LBL.text = String(answer[2])
-       // questionLBL?.text = statistician.fetchQuestionOfTheDay().question
+        questionLBL?.text = statistician.fetchQuestionOfTheDay().question
         answer0LBL?.text = statistician.fetchQuestionOfTheDay().answer0
         answer1LBL?.text = statistician.fetchQuestionOfTheDay().answer1
         answer2LBL?.text = statistician.fetchQuestionOfTheDay().answer2

@@ -114,7 +114,7 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Question" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8u1-6g-fZC">
-                                <rect key="frame" x="34" y="74" width="69" height="21"/>
+                                <rect key="frame" x="34" y="74" width="325" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -167,9 +167,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Statistics" id="Ivg-Pn-xDn"/>
                     <connections>
-                        <outlet property="answer0LBL" destination="Rj7-9H-94B" id="hqm-4z-ZpK"/>
+                        <outlet property="answer0LBL" destination="Rj7-9H-94B" id="i3E-ZK-PPj"/>
                         <outlet property="answer1LBL" destination="8jT-5I-erq" id="w5t-VI-fM1"/>
                         <outlet property="answer2LBL" destination="MhM-hK-OOc" id="aML-zk-egs"/>
+                        <outlet property="questionLBL" destination="8u1-6g-fZC" id="lWr-1I-IbU"/>
                         <outlet property="stats0LBL" destination="n3d-Jz-nHX" id="rtw-V2-VcS"/>
                         <outlet property="stats1LBL" destination="FRm-mQ-Akw" id="FZ8-Kp-8p1"/>
                         <outlet property="stats2LBL" destination="05s-pg-yjP" id="c2P-HE-Gtl"/>

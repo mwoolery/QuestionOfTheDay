@@ -32,9 +32,9 @@ class Statistician {
     
     func findPercentage() -> [Double]{
         let opinions:[Opinion] = retrieveAllOpinions()
-        var answer0:Int = 0
-        var answer1:Int = 0
-        var answer2:Int = 0
+        var answer0:Double = 0.0
+        var answer1:Double = 0.0
+        var answer2:Double = 0.0
         var percentages:[Double] = []
         for o in opinions{
             if o.answer == 0{
@@ -50,9 +50,9 @@ class Statistician {
             }
             
         }
-        percentages.append(Double(answer0/opinions.count)*100)
-        percentages.append(Double(answer1/opinions.count)*100)
-        percentages.append(Double(answer2/opinions.count)*100)
+        percentages.append(Double(answer0/Double(opinions.count))*100.0)
+        percentages.append(Double(answer1/Double(opinions.count))*100.0)
+        percentages.append(Double(answer2/Double(opinions.count))*100.0)
         return percentages
         
     }
@@ -71,14 +71,14 @@ class Statistician {
     
     func retrieveAllOpinions() ->[Opinion]{
         dataStoreOpinion = backendless.data.of(Opinion.ofClass())
-        let numMoviesToFetch = dataStoreOpinion?.getObjectCount() as! Int
+        let numOpinionsToFetch = dataStoreOpinion?.getObjectCount() as! Int
         let pageSize = 10
         let queryBuilder = DataQueryBuilder()
         var numOpinionFetched = 0
         var allOpinions:[Opinion] = []
         queryBuilder!.setPageSize(Int32(pageSize)).setOffset(0)
         
-        while numOpinionFetched < numMoviesToFetch {
+        while numOpinionFetched < numOpinionsToFetch {
             let opinions = self.dataStoreOpinion?.find(queryBuilder) as! [Opinion]
             allOpinions += opinions
             numOpinionFetched += opinions.count
