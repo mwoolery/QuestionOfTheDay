@@ -25,7 +25,7 @@ class Statistician {
         
        
 //        dataStoreQuestionOfTheDay.find(byId: "4AC48C78-0767-14B3-FF66-0235190A8B00", response: ((QuestionOfTheDay?) -> Void)!, error:((Fault?) ->Void)!)
-        dataStoreOpinion = backendless.data.of(Opinion.ofClass())
+        
         
     }
     
@@ -41,8 +41,9 @@ class Statistician {
 
         return dataQuestionOfTheDayObject
     }
-    func saveOpinion(){
-        
+    func saveOpinion(opinion: Opinion){
+        dataStoreOpinion = backendless.data.of(Opinion.ofClass())
+        _ = dataStoreOpinion?.save(opinion) as! Opinion
     }
 
 }

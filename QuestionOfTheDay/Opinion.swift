@@ -7,14 +7,19 @@
 
 import Foundation
 @objcMembers
-class Opinion: NSObject{
-    var answer: Int
+class Opinion: NSObject {
+    
+    var answer: Int = 0
     //for future expansion
     var objectId:String?
-    var question:QuestionOfTheDay?
-    init(answer:Int, question:QuestionOfTheDay?){
-        self.answer = answer
-        self.question = question
+ 
+ 
+    init(answer:Int){
+     self.answer = answer
+    }
+    override init(){
+        super.init()
+        answer = 0
     }
 
 }

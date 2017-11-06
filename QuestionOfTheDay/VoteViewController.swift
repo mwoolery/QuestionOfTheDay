@@ -17,10 +17,16 @@ class VoteViewController: UIViewController {
     
     
     @IBAction func ABTN(_ sender: Any) {
+        let opinion:Opinion = Opinion(answer: 0)
+        statistician.saveOpinion(opinion: opinion)
     }
     @IBAction func BBTN(_ sender: Any) {
+         let opinion:Opinion = Opinion(answer: 1)
+        statistician.saveOpinion(opinion: opinion)
     }
     @IBAction func CBTN(_ sender: Any) {
+         let opinion:Opinion = Opinion(answer: 2)
+        statistician.saveOpinion(opinion: opinion)
     }
     
     override func viewDidLoad() {
