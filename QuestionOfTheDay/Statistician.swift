@@ -1,14 +1,21 @@
 //
 //  Statistician.swift
 //  QuestionOfTheDay
-//
+//  Christopher List and Matthew Woolery
 //  Created by student on 11/5/17.
 //
 
+//  This portion was done by both Christopher List and Matthew Woolery.
+//  Matthew typed the code in this section but both shared knowledge on what needed to
+//  be done and how to do it.
+
 import Foundation
 
+//Statistician class has functions to connect to backendless
 
 class Statistician {
+    
+    //Create variables used to connect to backendless
     
     let APPLICATION_ID = "46A8800E-B115-4622-FFDA-7ABE14BF0000"
     let API_KEY = "AE8B888C-1B6C-CC3C-FF18-BF35522E0100"
@@ -17,18 +24,16 @@ class Statistician {
     var dataStoreQuestionOfTheDay: IDataStore!
     var dataStoreOpinion: IDataStore!
     
-    
+    //Initialization
     init(){
         backendless.hostURL = SERVER_URL
         backendless.initApp(APPLICATION_ID, apiKey: API_KEY)
         
-        
-       
-//        dataStoreQuestionOfTheDay.find(byId: "4AC48C78-0767-14B3-FF66-0235190A8B00", response: ((QuestionOfTheDay?) -> Void)!, error:((Fault?) ->Void)!)
-        
-        
     }
     
+    //Function that calculates the number of votes for each answer and
+    //returns an array of doubles that are the percentage of each answer
+    //chosen.
     
     func findPercentage() -> [Double]{
         let opinions:[Opinion] = retrieveAllOpinions()
@@ -57,6 +62,9 @@ class Statistician {
         
     }
     
+    //This function grabs the information from the QuestionOfTheDay table in backendless
+    //using the id and stores it as a QuestionOfTheDay object
+    
     func fetchQuestionOfTheDay() -> QuestionOfTheDay{
         
         dataStoreQuestionOfTheDay = backendless.data.of(QuestionOfTheDay.ofClass())
@@ -64,10 +72,16 @@ class Statistician {
 
         return dataQuestionOfTheDayObject
     }
+    
+    //This will send the user's answer to backendless, storing it.
+    
     func saveOpinion(opinion: Opinion){
         dataStoreOpinion = backendless.data.of(Opinion.ofClass())
         _ = dataStoreOpinion?.save(opinion) as! Opinion
     }
+    
+    //This function retrieves all opinions in the backendless database and stores it as
+    //an array of Opinions.
     
     func retrieveAllOpinions() ->[Opinion]{
         dataStoreOpinion = backendless.data.of(Opinion.ofClass())
