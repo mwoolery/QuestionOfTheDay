@@ -19,9 +19,9 @@ class StatisticsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         var answer:[Double] = statistician.findPercentage()
-        stats0LBL.text = String(answer[0])
-        stats1LBL.text = String(answer[1])
-        stats2LBL.text = String(answer[2])
+        stats0LBL.text = String(format: "%.1f%%",answer[0])
+        stats1LBL.text = String(format: "%.1f%%",answer[1])
+        stats2LBL.text = String(format: "%.1f%%",answer[2])
         questionLBL?.text = statistician.fetchQuestionOfTheDay().question
         answer0LBL?.text = statistician.fetchQuestionOfTheDay().answer0
         answer1LBL?.text = statistician.fetchQuestionOfTheDay().answer1
